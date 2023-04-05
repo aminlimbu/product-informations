@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/amplifier", (req, res) => {
-    res.send(" Page under Construction");
+    res.render("catalogue/productCatalogue");
 });
 app.get("/receiver", (req, res) => {
     res.send("Page under Construction");
