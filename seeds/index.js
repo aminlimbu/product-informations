@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
+// requiring models to seed
 const Product = require("../models/Product");
+// requiring seed texts
 const {
     adjective,
     sku,
@@ -12,6 +14,7 @@ const {
 
 mongoose.set("strictQuery", true);
 
+// connecting mongodb
 async function connectDb() {
     try {
         await mongoose.connect("mongodb://localhost:27017/pidb");
@@ -23,17 +26,20 @@ async function connectDb() {
 
 connectDb();
 
+// generate single random array item
 const randEl = (array) => {
     return array[Math.floor(Math.random() * array.length)];
 };
 
+// seed function
 const seedDb = async () => {
-    // remove all data from the collection
+    // remove all data from the collection, if already populated - all will be removed
     await Product.deleteMany({});
     // Seed new data to the collection
     for (let i = 0; i < 50; i++) {
         const componentName = randEl(component);
         const randName = randEl(brandName);
+        // creating instance of Product model and populate randomly generated texts
         const product = new Product({
             title: `${randName} ${randEl(sku)} ${randEl(
                 adjective
@@ -47,10 +53,13 @@ const seedDb = async () => {
             power: `${randEl(power)}`,
             status: `${randEl(status)}`,
         });
+        
+        // inserting data to mongodb
         await product.save();
     }
 };
 
+// calling seedDb function and close database connection
 seedDb().then(() => {
     mongoose.connection.close();
 });
