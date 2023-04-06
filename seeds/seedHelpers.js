@@ -1,3 +1,4 @@
+// collection of array used to seed database in /seeds/index.js
 module.exports.adjective = [
     "Stereo",
     "Integrated",
