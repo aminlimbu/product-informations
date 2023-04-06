@@ -13,3 +13,10 @@ Stack:
 - express
 - mongodb
 - ejs templating
+
+6th APR 2023
+---
+Mongoose database added
+Seed file created
+Products displayed in catalogue page from database
+views updated
