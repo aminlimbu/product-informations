@@ -1,0 +1,63 @@
+<% layout('./layouts/boilerplate') %>
+    <link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet"
+        type="text/css" />
+    <div class="row">
+        <div class="mb-3 shadow bg-dark rounded p-3 w-80">
+            <h1 class="mb-3">New Product (validation and database; pending)</h1>
+            <form action="/products" method="post">
+                <div class="mb-3">
+                    <label for="title">Product Title:</label>
+                    <input type="text" id="title" name="product[title]" class=" p-2 d-block w-100">
+                </div>
+                <div class="mb-3">
+                    <label for="brand">Brand:</label>
+                    <select type="text" id="brand" name="product[brand]" class="d-block p-2 w-100">
+                        <option value="Denon">Denon</option>
+                        <option value="Marantz">Marantz</option>
+                        <option value="Yamaha">Yamaha</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="SKU">SKU:</label>
+                    <input type="text" id="SKU" name="product[SKU]" class="d-block w-100 p-2">
+                </div>
+                <div class="mb-3">
+                    <label for="channels">Output Channels</label>
+                    <select name="channels" id="channels" class="p-2 d-block w-100">
+                        <option value="Stereo">Stereo</option>
+                        <option value="4-Channels">4-Channels</option>
+                        <option value="5-Channels">5-Channels</option>
+                        <option value="7-Channels">7-Channels</option>
+                        <option value="9-Channels">9-Channels</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="power">Power</label>
+                    <select name="product[power]" id="power" class="p-2 d-block w-100">
+                        <option value="14w">14 Watts/Channel</option>
+                        <option value="25w">25 Watts/Channel</option>
+                        <option value="60w">60 Watts/Channel</option>
+                        <option value="125w">125 Watts/Channel</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="status">Status:</label>
+                    <select type="text" id="status" name="product[status]" class="p-2 d-block w-100">
+                        <option value="Coming Soon">Coming Soon</option>
+                        <option value="Available">Available</option>
+                        <option value="Out of Stck">Out of Stck</option>
+                        <option value="Out of Stck">End of Life</option>
+                        <option value="Discontinued">Discontinued</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="description">Product Description:</label>
+                    <textarea type="text" rows="5" cols='33' id="description" name="product[description]"></textarea>
+                </div>
+                <button class="btn btn-primary d-block w-100" type="submit">Save New Product</button>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js"></script>
+    <script>var editor = new FroalaEditor('#description');</script>

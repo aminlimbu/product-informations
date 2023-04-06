@@ -9,3 +9,9 @@ body {
     background-image: url("/media/binding-dark.png");
     color: white;
 }
+
+input,
+select,
+textarea {
+    background-color: #a4bc92;
+}
