@@ -2,7 +2,6 @@ const express = require("express");
 const path = require("path");
 const ejsMate = require("ejs-mate");
 const mongoose = require("mongoose");
-const Product = require("./models/Product");
 
 const catalogueRoutes = require("./Routes/catalogue");
 const productRoutes = require("./Routes/products");
