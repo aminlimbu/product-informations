@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const Product = require("./models/Product");
 
 const catalogueRoutes = require("./Routes/catalogue");
+const productRoutes = require("./Routes/products");
 
 mongoose.connect("mongodb://localhost:27017/pidb");
 
@@ -20,26 +21,14 @@ app.use(express.urlencoded({ extended: true }));
 // public folder
 app.use(express.static(path.join(__dirname, "public")));
 
-// Routers
+// Routers middleware
 app.use("/catalogue", catalogueRoutes);
+app.use("/products", productRoutes);
 
 // render index file in views folder
 app.get("/", (req, res) => {
     res.render("index");
 });
-
-// renders form to add new item, validation and database connection pending ...
-app.get("/products", (req, res) => {
-    res.render("products/new");
-});
-
-// ...pending
-app.post("/products", (req, res) => {
-    console.log(req.body);
-    res.send("Hello");
-});
-
-// following loads catalogue of all the products with similar component in single page from the dataase
 
 // listening port
 app.listen(3000, (req, res) => {

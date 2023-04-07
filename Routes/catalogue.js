@@ -2,6 +2,7 @@ const express = require("express");
 const catalogue = require("../controllers/catalogue");
 const router = express.Router();
 
+// handle requrest, load controller
 router.route("/amplifiers").get(catalogue.renderAmplifiers);
 
 router.route("/receivers").get(catalogue.renderReceivers);
