@@ -34,3 +34,7 @@ textarea {
     background-color: rgba(0, 0, 0, 0.683);
     display: block;
 }
+
+.carousel {
+    height: 60vh;
+}
