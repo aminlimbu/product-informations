@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 
 const catalogueRoutes = require("./Routes/catalogue");
 const productRoutes = require("./Routes/products");
+const usersRoutes = require("./Routes/users");
 
 mongoose.connect("mongodb://localhost:27017/pidb");
 
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // Routers middleware
 app.use("/catalogue", catalogueRoutes);
 app.use("/products", productRoutes);
+app.use("/users", usersRoutes);
 
 // render index file in views folder
 app.get("/", (req, res) => {

@@ -8,6 +8,7 @@ body {
     background-color: #1a1c00;
     background-image: url("/media/binding-dark.png");
     color: white;
+    position: relative;
 }
 
 input,
@@ -18,4 +19,18 @@ textarea {
 
 .card {
     background-color: #40513b6c;
+}
+
+.home-bg {
+    background-image: url("../media/home-bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.home-bg-overlay {
+    height: 100%;
+    width: 100%;
+    padding-top: 0;
+    background-color: rgba(0, 0, 0, 0.683);
+    display: block;
 }
