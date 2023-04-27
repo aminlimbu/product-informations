@@ -3,27 +3,33 @@
         type="text/css" />
     <div class="row">
         <div class="mb-3 shadow bg-dark rounded p-3 w-80">
-            <h1 class="mb-3">New Product (validation and database; pending)</h1>
-            <form action="/products/new" method="post">
+            <h1 class="mb-3">New Product</h1>
+            <form action="/products/new" method="post" novalidate class="bs-form-validate">
                 <div class="mb-3">
-                    <label for="title">Product Title:</label>
-                    <input type="text" id="title" name="product[title]" class=" p-2 d-block w-100">
+                    <label for="title" class="form-label">Product Title:</label>
+                    <input type="text" id="title" name="product[title]" class=" p-2 d-block w-100 form-control" required>
+                    <div class="valid-feedback">
+                    Looks good!
+                    </div>
                 </div>
                 <div class="mb-3">
-                    <label for="brand">Brand:</label>
-                    <select type="text" id="brand" name="product[brand]" class="d-block p-2 w-100">
+                    <label for="brand" class="form-label">Brand:</label>
+                    <select type="text" id="brand" name="product[brand]" class="d-block p-2 w-100 form-select" required>
                         <option value="Denon">Denon</option>
                         <option value="Marantz">Marantz</option>
                         <option value="Yamaha">Yamaha</option>
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="SKU">SKU:</label>
-                    <input type="text" id="SKU" name="product[sku]" class="d-block w-100 p-2">
+                    <label for="SKU" class="form-label">SKU:</label>
+                    <input type="text" id="SKU" name="product[sku]" class="d-block w-100 p-2 form-control" required>
+                    <div class="valid-feedback">
+                    Looks good!
+                    </div>
                 </div>
                 <div class="mb-3">
-                    <label for="component">Component:</label>
-                    <select id="component" name="product[component]" class="d-block w-100 p-2">
+                    <label for="component" class="form-label">Component:</label>
+                    <select id="component" name="product[component]" class="d-block w-100 p-2 form-select" required>
                     <option value="Amplifier">Amplifier</option>
                     <option value="Receiver">Receiver</option>
                     <option value="CD Player">CD Player</option>
@@ -31,12 +37,12 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="description">Product Description:</label>
-                    <textarea type="text" rows="5" cols='33' id="description" name="product[description]"></textarea>
+                    <label for="description" class="form-label">Product Description:</label>
+                    <textarea type="text" rows="5" cols='33' id="description" name="product[description]" class="form-control" required></textarea>
                 </div>
                 <div class="mb-3">
-                    <label for="channels">Output Channels</label>
-                    <select name="product[channels]" id="channels" class="p-2 d-block w-100">
+                    <label for="channels" class="form-label">Output Channels</label>
+                    <select name="product[channels]" id="channels" class="p-2 d-block w-100 form-select" required>
                         <option value="Stereo">Stereo</option>
                         <option value="4-Channels">4-Channels</option>
                         <option value="5-Channels">5-Channels</option>
@@ -45,8 +51,8 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="power">Power</label>
-                    <select name="product[power]" id="power" class="p-2 d-block w-100">
+                    <label for="power" class="form-label">Power</label>
+                    <select name="product[power]" id="power" class="p-2 d-block w-100 form-select" required>
                         <option value="14w">14 Watts/Channel</option>
                         <option value="25w">25 Watts/Channel</option>
                         <option value="60w">60 Watts/Channel</option>
@@ -54,8 +60,8 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="status">Status:</label>
-                    <select type="text" id="status" name="product[status]" class="p-2 d-block w-100">
+                    <label for="status" class="form-label">Status:</label>
+                    <select type="text" id="status" name="product[status]" class="p-2 d-block w-100 form-select" required>
                         <option value="Coming Soon">Coming Soon</option>
                         <option value="Available">Available</option>
                         <option value="Out of Stck">Out of Stck</option>
