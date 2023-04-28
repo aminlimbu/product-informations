@@ -4,7 +4,7 @@
         <div class="row card rounded">
             <div class="col p-3">
                 <h1 class="card-title">Enter your details</h1>
-                <form action="/users/login" class='card-body' method="post">
+                <form action="/users/register" class='card-body' method="post">
                     <div>
                         <input type="text" name="firstName" class="form-control mb-3" placeholder="First Name" autofocus>
                     </div>
@@ -15,9 +15,12 @@
                         <input type="email" name="email" class="form-control mb-3" placeholder="email">
                     </div>
                     <div>
+                        <input type="text" name="username" class="form-control mb-3" placeholder="@username">
+                    </div>
+                    <div>
                         <input type="password" name="password" class="form-control mb-3" placeholder="password">
                     </div>
-                    <button class="btn btn-primary">Register</button>
+                    <button class="btn btn-primary w-100" type='submit'>Register</button>
                 </form>
             </div>
         </div>

@@ -3,12 +3,12 @@
         <div class="row">
             <div class="col shadow rounded">
                 <h1 class="">Login</h1>
-                <form action="/users/login" method='POST' class="mb-3">
+                <form action="/users/login" method='POST' class="mb-3 formValidation">
                     <div class="mb-3">
-                        <input type="email" class="form-control" name="email"  autofocus>
+                        <input type="username" class="form-control" name="username"  autofocus required>
                     </div>
                     <div class="mb-3">
-                        <input type="password" class="form-control" name='password'>
+                        <input type="password" class="form-control" name='password' required>
                     </div>
                     <button class="btn btn-primary d-block">Login</button>
                 </form>

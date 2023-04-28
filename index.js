@@ -3,7 +3,11 @@ const path = require("path");
 const ejsMate = require("ejs-mate");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
+const passport = require("passport");
+const passportLocalStrategy = require("passport-local");
+const session = require("express-session");
 
+const User = require("./models/User");
 const catalogueRoutes = require("./Routes/catalogue");
 const productRoutes = require("./Routes/products");
 const usersRoutes = require("./Routes/users");
@@ -22,6 +26,28 @@ app.use(methodOverride("_method"));
 
 // public folder
 app.use(express.static(path.join(__dirname, "public")));
+
+// session
+const sessionConfiguration = {
+    name: "PI.session",
+    secret: "J8gHmqeufpKZGLf9B6z3WT9e9FIxZCRy",
+    resave: false,
+    saveUninitialized: true,
+    cookies: {
+        httpOnly: true,
+        expires: Date.now() + 1000 * 3600 * 24 * 7,
+        maxAge: 1000 * 3600 * 24 * 7,
+    },
+};
+
+app.use(session(sessionConfiguration));
+
+// middle ware for password
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new passportLocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // Routers middleware
 app.use("/catalogue", catalogueRoutes);
