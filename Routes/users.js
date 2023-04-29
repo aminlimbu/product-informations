@@ -13,6 +13,7 @@ router
         }),
         users.userLogin
     );
+
 router.route("/register").get(users.registerForm).post(users.userRegister);
 
 module.exports = router;

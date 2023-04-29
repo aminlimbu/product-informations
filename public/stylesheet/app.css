@@ -38,3 +38,7 @@ textarea {
 .carousel {
     height: 60vh;
 }
+
+.out-of-stock {
+    background-color: red;
+}

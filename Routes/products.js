@@ -8,4 +8,9 @@ router.route("/new").get(product.renderNewForm).post(product.newProduct);
 
 router.route("/show/:id").get(product.showProduct);
 
+router
+    .route("/update/:id")
+    .get(product.renderUpdateProductForm)
+    .put(product.updateProduct);
+
 module.exports = router;

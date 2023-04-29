@@ -38,10 +38,10 @@ module.exports.channels = [
 module.exports.power = ["14w", "24w", "60w", "125w"];
 
 module.exports.status = [
-    "available",
-    "out-of-stock",
-    "end-of-life",
-    "discontinued",
+    "Available",
+    "Out of stock",
+    "End of life",
+    "Discontinued",
 ];
 
 module.exports.component = [

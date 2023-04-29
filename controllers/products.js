@@ -28,6 +28,13 @@ module.exports.showProduct = async (req, res) => {
     res.render("products/show", { product });
 };
 
+// Product update Form
+module.exports.renderUpdateProductForm = async (req, res) => {
+    const { id } = req.params;
+    const product = await Product.findById(id);
+    res.render("products/update", { product });
+};
+
 // update product
 module.exports.updateProduct = async (req, res) => {
     const { id } = req.params;
@@ -36,5 +43,5 @@ module.exports.updateProduct = async (req, res) => {
     });
     await product.save();
 
-    res.redirect(`/product/show/${id}`);
+    res.redirect(`/products/show/${id}`);
 };
