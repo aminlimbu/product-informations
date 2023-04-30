@@ -4,6 +4,8 @@ const router = express.Router();
 
 router.route("/").get(product.renderAllProducts);
 
+router.route("/:id").delete(product.deleteProduct);
+
 router.route("/new").get(product.renderNewForm).post(product.newProduct);
 
 router.route("/show/:id").get(product.showProduct);
