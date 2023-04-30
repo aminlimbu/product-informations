@@ -50,3 +50,26 @@ module.exports.component = [
     "Network Player",
     "CD Player",
 ];
+
+module.exports.receiverImages = [
+    "/media/Receiver-Main.pmg",
+    "/media/Receiver-Hero.pmg",
+    "/media/Receiver-Rear.pmg",
+    "/media/Receiver-w-Remote.pmg",
+];
+
+module.exports.amplifierImages = [
+    "/media/Amplifier-Main.pmg",
+    "/media/Amplifier-Rear.pmg",
+];
+
+module.exports.cdPlayerImages = [
+    "/media/CD-Player-Hero.pmg",
+    "/media/CD-Player-Rear.pmg",
+    "/media/CD-Player-w-Remote.pmg",
+];
+
+module.exports.networkPlayerImages = [
+    "/media/Network-Player-Main.pmg",
+    "/media/Network-Player-Rear.pmg",
+];
