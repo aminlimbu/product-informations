@@ -8,7 +8,7 @@ body {
     background-color: #1a1c00;
     background-image: url("/media/binding-dark.png");
     color: white;
-    position: relative;
+    /* position: relative; */
 }
 
 input,
@@ -35,10 +35,8 @@ textarea {
     display: block;
 }
 
-.carousel {
-    height: 60vh;
-}
-
-.out-of-stock {
-    background-color: red;
+.carousel-item img {
+    height: 500px;
+    width: 500px;
+    object-fit: contain;
 }
