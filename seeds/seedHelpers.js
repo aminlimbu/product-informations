@@ -52,24 +52,24 @@ module.exports.component = [
 ];
 
 module.exports.receiverImages = [
-    "/media/Receiver-Main.pmg",
-    "/media/Receiver-Hero.pmg",
-    "/media/Receiver-Rear.pmg",
-    "/media/Receiver-w-Remote.pmg",
+    "/media/Receiver-Main.png",
+    "/media/Receiver-Hero.png",
+    "/media/Receiver-Rear.png",
+    "/media/Receiver-w-Remote.png",
 ];
 
 module.exports.amplifierImages = [
-    "/media/Amplifier-Main.pmg",
-    "/media/Amplifier-Rear.pmg",
+    "/media/Amplifier-Main.png",
+    "/media/Amplifier-Rear.png",
 ];
 
 module.exports.cdPlayerImages = [
-    "/media/CD-Player-Hero.pmg",
-    "/media/CD-Player-Rear.pmg",
-    "/media/CD-Player-w-Remote.pmg",
+    "/media/CD-Player-Hero.png",
+    "/media/CD-Player-Rear.png",
+    "/media/CD-Player-w-Remote.png",
 ];
 
 module.exports.networkPlayerImages = [
-    "/media/Network-Player-Main.pmg",
-    "/media/Network-Player-Rear.pmg",
+    "/media/Network-Player-Main.png",
+    "/media/Network-Player-Rear.png",
 ];
