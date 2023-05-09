@@ -5,7 +5,7 @@
         </h1>
         <div class="row align-items-center justify-content-center h-100">
             <% for(let product of products) {%>
-                <div class="col-md-4 card rounded-3 m-3">
+                <div class="col-md-4 card rounded-3 m-5">
                     <img src="https://assets.denon.com/Assets/images/ProductImages/PMA-A110/1658_DN_PMA-A-110_overview_image_900x595.png"
                         alt="" class="card-img-top">
                     <div class="card-body">
@@ -32,6 +32,11 @@
                                 Power: <%= product.power %>
                             </li>
                         </ul>
+                    </div>
+                    <div class="catalogue-buttons mb-3 d-flex justify-content-around">
+                    <a href="/products/show/<%= product.id%>"><button class="btn btn-primary cb-show">Show</button></a>
+                    <a href="/products/update/<%= product.id %>">
+                    <button class="btn btn-success cd-edit">Edit</button></a>
                     </div>
                 </div>
                 <% } %>
