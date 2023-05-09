@@ -1,12 +1,12 @@
 <% layout('./layouts/boilerplate') %>
-    <div class="mt-3 p-3 mb-3 h-100">
+    <div class="overflow-auto mt-3 p-3 mb-3 h-100">
         <h1>
             <%= products.component %>
         </h1>
         <div class="row align-items-center justify-content-center h-100">
             <% for(let product of products) {%>
                 <div class="col-md-4 card rounded-3 m-5">
-                    <img src="https://assets.denon.com/Assets/images/ProductImages/PMA-A110/1658_DN_PMA-A-110_overview_image_900x595.png"
+                    <img src="<%= product.images[0].split(',')[0] %>"
                         alt="" class="card-img-top">
                     <div class="card-body">
                         <h2 class="card-title">

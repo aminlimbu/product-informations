@@ -4,6 +4,7 @@ const Product = require("../models/Product");
 
 module.exports.renderAmplifiers = async (req, res) => {
     const products = await Product.find({ component: "Amplifier" });
+    console.log(products);
     res.render("catalogue/productCatalogue", { products });
 };
 
