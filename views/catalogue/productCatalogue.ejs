@@ -35,8 +35,10 @@
                     </div>
                     <div class="catalogue-buttons mb-3 d-flex justify-content-around">
                     <a href="/products/show/<%= product.id%>"><button class="btn btn-primary cb-show">Show</button></a>
+                    <% if(currentUser){%>
                     <a href="/products/update/<%= product.id %>">
                     <button class="btn btn-success cd-edit">Edit</button></a>
+                    <%}%>
                     </div>
                 </div>
                 <% } %>

@@ -2,11 +2,17 @@ const express = require("express");
 const product = require("../controllers/products");
 const router = express.Router();
 
+// middlewares
+const { isLoggedIn } = require("../middlewares/permissions");
+
 router.route("/").get(product.renderAllProducts);
 
 router.route("/:id").delete(product.deleteProduct);
 
-router.route("/new").get(product.renderNewForm).post(product.newProduct);
+router
+    .route("/new")
+    .get(isLoggedIn, product.renderNewForm)
+    .post(isLoggedIn, product.newProduct);
 
 router.route("/show/:id").get(product.showProduct);
 

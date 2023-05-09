@@ -24,7 +24,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
-// public folder
+// public folders
 app.use(express.static(path.join(__dirname, "public")));
 
 // session
@@ -42,12 +42,19 @@ const sessionConfiguration = {
 
 app.use(session(sessionConfiguration));
 
-// middle ware for password
+// middleware for password
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new passportLocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+app.use((req, res, next) => {
+    // set locals accessible in views
+    res.locals.currentUser = req.user;
+    // console.log(req.user);
+    next();
+});
 
 // Routers middleware
 app.use("/catalogue", catalogueRoutes);

@@ -26,7 +26,7 @@
                                 <%= product.sku%>
                             </td>
                             <td class="p-2">
-                                <%= product.description %>
+                                <%= product.description.substring(0,80) %>
                             </td>
                             <td class="p-2">
                                 <%= product.component%>
@@ -35,16 +35,18 @@
                                 <%= product.status%>
                             </td>
                             <td class="p-2">
-                                <img src="https://assets.denon.com/Assets/images/ProductImages/PMA-A110/1658_DN_PMA-A-110_overview_image_900x595.png"
+                                <img src="<%= product.images[0].split(',')[0] %>"
                                     class="img-thumbnail">
                             </td>
                             <td class="p-2">
-                                <a href="/products/update/<%= product.id %>"><button
-                                        class="btn btn-primary mb-2 w-100">Edit</button></a>
                                 <a href="/products/show/<%= product.id %>"><button
                                         class="btn btn-success mb-2 w-100">Show</button></a>
+                                        <%if(currentUser){%>
+                                <a href="/products/update/<%= product.id %>"><button
+                                        class="btn btn-primary mb-2 w-100">Edit</button></a>
                                 <form action="/products/<%= product.id %>?_method=DELETE" method="POST"><button
                                         class="btn btn-danger mb-2 w-100">Delete</button></form>
+                                        <%}%>
                             </td>
                         </tr>
                         <%}%>

@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a href="./" class="navbar-brand">PI</a>
+        <a href="/" class="navbar-brand"><span class="text-primary border-bottom">P</span>I</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -18,9 +18,13 @@
                 </li>
                 <li class="nav-item"><a class="nav-link" aria-current="CD Players" href="/catalogue/cd-players">CD Player</a></li>
                 <li class="nav-item"><a class="nav-link" aria-current="All Products" href="/products">All Products</a></li>
-                <li class="nav-item"><a class="nav-link" href="/products/new">Add New Product</a></li>
+                <% if(!currentUser){%>
                 <li class='nav-item'><a class='nav-link' href="/users/login">Login</a></li>
                 <li class='nav-item'><a class='nav-link' href="/users/register">Register</a></li>
+                <% } else { %>
+                <li class="nav-item"><a class="nav-link" href="/products/new">Add New Product</a></li>
+                <li class='nav-item'><a class='nav-link' href="/users/logout">Logout</a></li>
+                <%}%>
             </ul>
 
         </div>

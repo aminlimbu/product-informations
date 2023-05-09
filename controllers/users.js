@@ -5,7 +5,10 @@ module.exports.renderLoginForm = (req, res) => {
 };
 
 module.exports.userLogin = (req, res) => {
-    res.send(req.body);
+    const redirectUrl = req.session.redirectTo || "/products";
+    // clear session value for redirectTo
+    delete req.session.redirectTo;
+    res.redirect(redirectUrl);
 };
 
 module.exports.registerForm = (req, res) => {
@@ -21,5 +24,16 @@ module.exports.userRegister = async (req, res) => {
             return console.log(error);
         }
         res.render("users/login");
+    });
+};
+
+module.exports.logOut = (req, res, next) => {
+    // logout is passportJS method; middleware
+    req.logout((error) => {
+        if (error) {
+            return next(error);
+        }
+
+        res.redirect("/");
     });
 };
