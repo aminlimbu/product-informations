@@ -18,6 +18,7 @@ module.exports.newProduct = async (req, res) => {
 // render all products from database
 module.exports.renderAllProducts = async (req, res) => {
     const products = await Product.find();
+    console.log(products);
     res.render("products/all", { products });
 };
 
@@ -25,7 +26,7 @@ module.exports.renderAllProducts = async (req, res) => {
 module.exports.showProduct = async (req, res) => {
     const { id } = req.params;
     const product = await Product.findById(id).lean();
-    console.log(product);
+    // console.log(product.images[0].split(","));
     res.render("products/show", { product });
 };
 

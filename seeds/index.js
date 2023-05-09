@@ -35,6 +35,11 @@ const randEl = (array) => {
     return array[Math.floor(Math.random() * array.length)];
 };
 
+// generate images array
+const imagesArray = (array) => {
+    return array.parse();
+};
+
 // seed function
 const seedDb = async () => {
     // remove all data from the collection, if already populated - all will be removed
@@ -45,13 +50,13 @@ const seedDb = async () => {
         const randName = randEl(brandName);
         const productImages = (componentName) => {
             if (componentName === "Receiver") {
-                return receiverImages;
+                return JSON.stringify(receiverImages);
             } else if (componentName === "Amplifier") {
-                return amplifierImages;
+                return JSON.stringify(amplifierImages);
             } else if (componentName === "CD Player") {
-                return cdPlayerImages;
+                return JSON.stringify(cdPlayerImages);
             } else {
-                return networkPlayerImages;
+                return JSON.stringify(networkPlayerImages);
             }
         };
         // creating instance of Product model and populate randomly generated texts
@@ -63,7 +68,7 @@ const seedDb = async () => {
             sku: `${randEl(sku)}-${randEl(sku)}-${randEl(sku)}`,
             component: `${componentName}`,
             description: `lorem25 Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ab delectus quae nihil facere dolorum tempore deleniti reprehenderit id eum. Aliquid dolor unde quisquam vitae maxime aspernatur adipisci magni assumenda.`,
-            images: `${productImages()}`,
+            images: `${JSON.parse(productImages(componentName))}`,
             channels: `${randEl(channels)}`,
             power: `${randEl(power)}`,
             status: `${randEl(status)}`,

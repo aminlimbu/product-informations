@@ -9,7 +9,7 @@ const productSchema = new Schema({
     sku: String,
     component: String,
     description: String,
-    images: [{ type: String }],
+    images: [String],
     channels: String,
     power: String,
     status: String,
