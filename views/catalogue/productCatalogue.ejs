@@ -1,13 +1,12 @@
 <% layout('./layouts/boilerplate') %>
     <div class="overflow-auto mt-3 p-3 mb-3 h-100">
         <h1>
-            <%= products.component %>
+            <%= products[0].component %>
         </h1>
         <div class="row align-items-center justify-content-center h-100">
             <% for(let product of products) {%>
-                <div class="col-md-4 card rounded-3 m-5">
-                    <img src="<%= product.images[0].split(',')[0] %>"
-                        alt="" class="card-img-top">
+                <div class="col-lg-3 card d-flex flex-column rounded-5 p-3 mb-3 me-2">
+                    <img src="<%= product.images[0].split(',')[0] %>" alt="" class="card-img-top">
                     <div class="card-body">
                         <h2 class="card-title">
                             <%= product.title %>
@@ -32,13 +31,14 @@
                                 Power: <%= product.power %>
                             </li>
                         </ul>
-                    </div>
-                    <div class="catalogue-buttons mb-3 d-flex justify-content-around">
-                    <a href="/products/show/<%= product.id%>"><button class="btn btn-primary cb-show">Show</button></a>
-                    <% if(currentUser){%>
-                    <a href="/products/update/<%= product.id %>">
-                    <button class="btn btn-success cd-edit">Edit</button></a>
-                    <%}%>
+                        <div class="catalogue-buttons mb-3 d-flex justify-content-around">
+                            <a href="/products/show/<%= product.id%>"><button
+                                    class="btn btn-primary cb-show">Show</button></a>
+                            <% if(currentUser){%>
+                                <a href="/products/update/<%= product.id %>">
+                                    <button class="btn btn-success cd-edit">Edit</button></a>
+                                <%}%>
+                        </div>
                     </div>
                 </div>
                 <% } %>
