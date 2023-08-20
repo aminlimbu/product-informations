@@ -6,6 +6,7 @@ const methodOverride = require("method-override");
 const passport = require("passport");
 const passportLocalStrategy = require("passport-local");
 const session = require("express-session");
+const flash = require("connect-flash");
 
 const User = require("./models/User");
 const catalogueRoutes = require("./Routes/catalogue");
@@ -41,6 +42,7 @@ const sessionConfiguration = {
 };
 
 app.use(session(sessionConfiguration));
+app.use(flash());
 
 // middleware for password
 app.use(passport.initialize());
@@ -50,9 +52,10 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
-    // set locals accessible in views
+    // set locals accessible only in views
     res.locals.currentUser = req.user;
-    // console.log(req.user);
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
     next();
 });
 

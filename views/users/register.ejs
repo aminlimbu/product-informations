@@ -6,19 +6,19 @@
                 <h1 class="card-title">Enter your details</h1>
                 <form action="/users/register" class='card-body' method="post">
                     <div>
-                        <input type="text" name="firstName" class="form-control mb-3" placeholder="First Name" autofocus>
+                        <input type="text" name="firstName" class="form-control mb-3" placeholder="First Name" autofocus required>
                     </div>
                     <div>
-                        <input type="text" name='lastName' class="form-control mb-3" placeholder="lastName">
+                        <input type="text" name='lastName' class="form-control mb-3" placeholder="lastName" required>
                     </div>
                     <div>
-                        <input type="email" name="email" class="form-control mb-3" placeholder="email">
+                        <input type="email" name="email" class="form-control mb-3" placeholder="email" required>
                     </div>
                     <div>
-                        <input type="text" name="username" class="form-control mb-3" placeholder="@username">
+                        <input type="text" name="username" class="form-control mb-3" placeholder="@username" required>
                     </div>
                     <div>
-                        <input type="password" name="password" class="form-control mb-3" placeholder="password">
+                        <input type="password" name="password" class="form-control mb-3" placeholder="password" required>
                     </div>
                     <button class="btn btn-primary w-100" type='submit'>Register</button>
                 </form>
