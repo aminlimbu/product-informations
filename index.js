@@ -67,6 +67,7 @@ app.get("/", (req, res) => {
 });
 
 // listening port
-app.listen(3000, (req, res) => {
-    console.log("Listening at port 3000.");
+const port = porcess.env.PORT || 3000;
+app.listen(port, (req, res) => {
+    console.log(`Listening at port ${port}.`);
 });
