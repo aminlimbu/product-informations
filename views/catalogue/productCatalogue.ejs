@@ -1,11 +1,11 @@
 <% layout('./layouts/boilerplate') %>
-    <div class="overflow-auto mt-3 p-3 mb-3 h-100">
+    <div class="mt-3 mb-3 mx-2 h-100 d-flex flex-column">
         <h1>
             <%= products[0].component %>
         </h1>
-        <div class="row align-items-center justify-content-center h-100">
+        <div class="row d-flex align-items-stretch justify-content-between">
             <% for(let product of products) {%>
-                <div class="col-lg-3 card d-flex flex-column rounded-5 p-3 mb-3 me-2">
+                <div class="col-lg-4 col-md-6 card rounded-5 p-3 mb-3">
                     <img src="<%= product.images[0].split(',')[0] %>" alt="" class="card-img-top">
                     <div class="card-body">
                         <h2 class="card-title">
@@ -31,7 +31,7 @@
                                 Power: <%= product.power %>
                             </li>
                         </ul>
-                        <div class="catalogue-buttons mb-3 d-flex justify-content-around">
+                        <div class="catalogue-buttons mt-1 d-flex justify-content-center">
                             <a href="/products/show/<%= product.id%>"><button
                                     class="btn btn-primary cb-show">Show</button></a>
                             <% if(currentUser){%>
