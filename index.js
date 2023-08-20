@@ -12,7 +12,7 @@ const catalogueRoutes = require("./Routes/catalogue");
 const productRoutes = require("./Routes/products");
 const usersRoutes = require("./Routes/users");
 
-mongoose.connect("mongodb://localhost:27017/pidb");
+mongoose.connect("mongodb://127.0.0.1:27017/pidb");
 
 const app = express();
 
@@ -67,7 +67,7 @@ app.get("/", (req, res) => {
 });
 
 // listening port
-const port = porcess.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, (req, res) => {
     console.log(`Listening at port ${port}.`);
 });
