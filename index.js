@@ -7,13 +7,30 @@ const passport = require("passport");
 const passportLocalStrategy = require("passport-local");
 const session = require("express-session");
 const flash = require("connect-flash");
+const dotenv = require("dotenv");
 
 const User = require("./models/User");
 const catalogueRoutes = require("./Routes/catalogue");
 const productRoutes = require("./Routes/products");
 const usersRoutes = require("./Routes/users");
 
-mongoose.connect("mongodb://127.0.0.1:27017/pidb");
+dotenv.config();
+// mongoose.connect("mongodb://127.0.0.1:27017/pidb");
+try {
+    // establish connection
+    mongoose.connect(
+        process.env.DB_URI,
+        // provide options object
+        {
+            dbName: "product-info",
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        }
+    );
+    console.log("Database connected");
+} catch (err) {
+    console.log("error from DB connnnection:", err.message);
+}
 
 const app = express();
 

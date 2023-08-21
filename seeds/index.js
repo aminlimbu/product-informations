@@ -1,4 +1,7 @@
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+
+dotenv.config();
 // requiring models to seed
 const Product = require("../models/Product");
 // requiring seed texts
@@ -21,7 +24,11 @@ mongoose.set("strictQuery", true);
 // connecting mongodb
 async function connectDb() {
     try {
-        await mongoose.connect("mongodb://localhost:27017/pidb");
+        await mongoose.connect(process.env.DB_URI, {
+            dbName: "product-info",
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
         console.log("DB Connected");
     } catch (e) {
         console.log(e.message);
