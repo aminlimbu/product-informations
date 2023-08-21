@@ -17,10 +17,10 @@ const usersRoutes = require("./Routes/users");
 dotenv.config();
 // mongoose.connect("mongodb://127.0.0.1:27017/pidb");
 try {
-    // establish connection
+    //Establish a connection
     mongoose.connect(
-        process.env.DB_URI,
-        // provide options object
+        process.env.MONGODB_URI,
+        //Provide options object
         {
             dbName: "product-info",
             useNewUrlParser: true,
@@ -29,7 +29,7 @@ try {
     );
     console.log("Database connected");
 } catch (err) {
-    console.log("error from DB connnnection:", err.message);
+    console.log("error from DB connection:", err.message);
 }
 
 const app = express();
@@ -81,7 +81,7 @@ app.use("/catalogue", catalogueRoutes);
 app.use("/products", productRoutes);
 app.use("/users", usersRoutes);
 
-// render index file in views folder
+// render index file in the views folder
 app.get("/", (req, res) => {
     res.render("index");
 });
