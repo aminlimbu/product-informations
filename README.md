@@ -1,5 +1,7 @@
 # product-informations
 
+Vercel: https://product-informations-azure.vercel.app/
+
 Features:
 - Product Information Web Application
 - User Login
@@ -15,6 +17,9 @@ Stack:
 
 
 ... work in progress
+- 👷🏼‍♂️ Error Handling
+- 👷🏼‍♂️ Authorisation
+
 21 AUG 2023
 - Integrated to Atlas
 - Deploying in Vercel
@@ -26,5 +31,5 @@ Stack:
 ---
 - Mongoose database added
 - Seed file created
-- Products displayed in the catalogue page from the database
+- Products displayed on the catalogue page from the database
 - views updated
