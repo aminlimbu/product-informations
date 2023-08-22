@@ -9,7 +9,7 @@ body {
     background-color: #1a1c00;
     background-image: url("/media/binding-dark.png");
     color: white;
-    /* position: relative; */
+    position: relative;
 }
 
 input,

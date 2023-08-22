@@ -19,7 +19,7 @@ dotenv.config();
 try {
     //Establish a connection
     mongoose.connect(
-        process.env.MONGODB_URI,
+        process.env.MONGODB_URI || process.env.DB_URI,
         //Provide options object
         {
             dbName: "product-info",
