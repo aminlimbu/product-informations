@@ -1,16 +1,18 @@
 <% layout('./layouts/boilerplate')%>
     <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
         <div class="col-md-6">
-            <div class="d-flex flex-column align-items-center justify-content-center shadow rounded p-3 bg-secondary">
-                <h1 class="">Login</h1>
-                <form action="/users/login" method='POST' class="d-flex flex-column align-items-center justify-content-center w-100 mb-3 formValidation">
+            <div class="d-flex flex-column align-items-center justify-content-center shadow-lg rounded p-3 bg-dark">
+                <h1 class="mt-3">Login</h1>
+                <form action="/users/login" method='POST' class="d-flex flex-column align-items-center justify-content-center w-100 mx-5 mt-3 formValidation">
                     <div class="mb-3 w-100">
-                        <input type="username" class="form-control" name="username"  autofocus required>
+                        <input type="username" class="form-control bg-secondary" name="username"  autofocus required>
                     </div>
                     <div class="mb-3 w-100">
-                        <input type="password" class="form-control" name='password' required>
+                        <input type="password" class="form-control bg-secondary" name='password' required>
                     </div>
-                    <button class="btn btn-primary d-block">Login</button>
+                    <button class="btn btn-primary d-block mt-3">Login</button>
+                    <div class="mt-3 text-center text-light">
+                    <small>Don't have an account? <a href="/users/register">Register.</a></small></div>
                 </form>
             </div>
         </div>
