@@ -33,7 +33,7 @@ try {
 
 const app = express();
 
-// Templating engine setup
+// EJS Templating engine setup
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -58,19 +58,21 @@ const sessionConfiguration = {
     },
 };
 
-// initialise session and flash for handling success/error feedback
+//Initialise session and flash for handling success/error feedback
 app.use(session(sessionConfiguration));
 app.use(flash());
 
-// middleware for password
+// passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+
+// Strategy for Passport Local Mongoose Plugin
 passport.use(new passportLocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
-    // set locals accessible only in views
+    // set locals variables, accessible only in views
     res.locals.currentUser = req.user;
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
