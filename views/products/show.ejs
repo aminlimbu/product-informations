@@ -7,12 +7,12 @@
     <section class="d-flex flex-column justify-content-center align-items-center mb-5 w-80">
       <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
-        <% product.images[0].split(',').forEach ((v, i)=>{%>
+        <% if(product.images[0]){product.images[0].split(',').forEach ((v, i)=>{%>
        
           <div class="carousel-item <%= i === 0 ? 'active' : ''%>">
             <img src="<%= v %>" class="d-block w-100" alt="<%= product.title %>">
           </div>
-        <%})%>
+        <%})}%>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>

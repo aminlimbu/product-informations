@@ -19,7 +19,7 @@ router.route("/show/:id").get(product.showProduct);
 
 router
     .route("/update/:id")
-    .get(product.renderUpdateProductForm)
-    .put(product.updateProduct);
+    .get(isLoggedIn, product.renderUpdateProductForm)
+    .put(isLoggedIn, product.updateProduct);
 
 module.exports = router;
