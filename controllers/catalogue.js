@@ -1,6 +1,6 @@
 const Product = require("../models/Product");
 
-// following loads catalogue of all the products with similar component in single page from the dataase
+// Load a catalogue of all the products with similar components on a single page from the database
 
 module.exports.renderAmplifiers = async (req, res) => {
     const products = await Product.find({ component: "Amplifier" });
