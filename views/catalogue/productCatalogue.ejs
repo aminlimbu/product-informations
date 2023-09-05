@@ -3,9 +3,9 @@
         <h1>
             <%= products[0].component %>
         </h1>
-        <div class="row d-flex align-items-stretch justify-content-between">
+        <div class="d-flex row align-items-stretch justify-content-between">
             <% for(let product of products) {%>
-                <div class="col-lg-4 col-md-6 card rounded-5 p-3 mb-3">
+                <div class="col-md-4 col-sm-6 card rounded-5 p-3 mb-n5">
                     <img src="<%= product.images[0].split(',')[0] %>" alt="" class="card-img-top">
                     <div class="card-body">
                         <h2 class="card-title">
@@ -17,20 +17,6 @@
                             exercitationem
                             magni
                             iure.</p>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item bg-transparent text-light">
-                                SKU: <%= product.sku %>
-                            </li>
-                            <li class="list-group-item bg-transparent text-light">
-                                Stock: <%= product.status %>
-                            </li>
-                            <li class="list-group-item bg-transparent text-light">
-                                Output: <%= product.channels %>
-                            </li>
-                            <li class="list-group-item bg-transparent text-light">
-                                Power: <%= product.power %>
-                            </li>
-                        </ul>
                         <div class="catalogue-buttons mt-1 d-flex justify-content-center">
                             <a href="/products/show/<%= product.id%>"><button
                                     class="btn btn-primary cb-show">Show</button></a>

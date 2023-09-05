@@ -15,9 +15,8 @@ const productRoutes = require("./Routes/products");
 const usersRoutes = require("./Routes/users");
 
 dotenv.config();
-// mongoose.connect("mongodb://127.0.0.1:27017/pidb");
 try {
-    //Establish a connection
+    //Establish a database connection; local or remote (Atlas)
     mongoose.connect(
         process.env.MONGODB_URI || process.env.DB_URI,
         //Provide options object
@@ -45,7 +44,7 @@ app.use(methodOverride("_method"));
 // public folders
 app.use(express.static(path.join(__dirname, "public")));
 
-// session
+// session configuration
 const sessionConfiguration = {
     name: "PI.session",
     secret: "J8gHmqeufpKZGLf9B6z3WT9e9FIxZCRy",
@@ -58,6 +57,7 @@ const sessionConfiguration = {
     },
 };
 
+// initialise session and flash for handling success/error feedback
 app.use(session(sessionConfiguration));
 app.use(flash());
 
