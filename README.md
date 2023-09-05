@@ -1,11 +1,11 @@
 # product-informations
 
-Vercel: https://product-informations-azure.vercel.app/
+URL: https://product-informations-azure.vercel.app/
 
 Features:
 - Product Information Web Application
 - User Login
-- Login and updated product information (pending)
+- Updated product information
 - Add a new product to publish
 - Database: MongoDB (Atlas)
 
@@ -14,14 +14,15 @@ Stack:
 - express
 - MongoDB
 - ejs templating
+- passport middleware
 
 
-... work in progress
-- 👷🏼‍♂️ Error Handling
-- 👷🏼‍♂️ Authorisation
+5th SEP 2023
+- Success/Error Feedback added (connect-flash middleware)
+- Creating, Updating and Deleting Authorisation added
 
 21 AUG 2023
-- Integrated to Atlas
+- Integrated to Mongo Database Clour, Atlas
 - Deploying in Vercel
 
 28th APR 2023
