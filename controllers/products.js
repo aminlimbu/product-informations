@@ -48,6 +48,7 @@ module.exports.updateProduct = async (req, res) => {
 
 // handle product detetion
 module.exports.deleteProduct = async (req, res) => {
-    await Product.findOneAndDelete(req.params.id);
+    const { id } = req.params;
+    await Product.findByIdAndDelete(id);
     res.redirect("/products");
 };

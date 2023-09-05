@@ -84,7 +84,12 @@
                                 >Discontinued</option>
                         </select>
                     </div>
-                    <button class="btn btn-primary d-block w-100" type="submit">Update</button>
+                    <div class="d-flex justify-content-around">
+                        <button class="btn btn-primary" type="submit">Update</button>
+                        <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
                 </form>
             </div>
         </div>
