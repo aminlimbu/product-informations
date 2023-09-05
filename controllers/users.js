@@ -5,6 +5,7 @@ module.exports.renderLoginForm = (req, res) => {
 };
 
 module.exports.userLogin = (req, res) => {
+    req.flash("success", `welcome back! ${req.session.passport.user}`);
     const redirectUrl = req.session.redirectTo || "/products";
     // clear session value for redirectTo
     delete req.session.redirectTo;
@@ -16,15 +17,22 @@ module.exports.registerForm = (req, res) => {
 };
 
 module.exports.userRegister = async (req, res) => {
-    const { firstName, lastName, email, username, password } = req.body;
-    const user = new User({ firstName, lastName, email, username });
-    const registeredUser = await User.register(user, password);
-    req.login(registeredUser, (error) => {
-        if (error) {
-            return console.log(error);
-        }
-        res.render("users/login");
-    });
+    try {
+        const { firstName, lastName, email, username, password } = req.body;
+        const user = new User({ firstName, lastName, email, username });
+        const registeredUser = await User.register(user, password);
+        // try loging in newly created user; automatic login
+        req.login(registeredUser, (error) => {
+            if (error) {
+                return next(error);
+            }
+            req.flash("success", "Successfully Registered");
+            res.redirect("/products");
+        });
+    } catch (e) {
+        req.flash("error", e.message);
+        res.redirect("/users/register");
+    }
 };
 
 module.exports.logOut = (req, res, next) => {

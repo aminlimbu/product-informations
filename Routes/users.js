@@ -8,7 +8,8 @@ router
     .get(users.renderLoginForm)
     .post(
         passport.authenticate("local", {
-            failureRedirect: "/login",
+            failureFlash: true,
+            failureRedirect: "/users/login",
             keepSessionInfo: true,
         }),
         users.userLogin

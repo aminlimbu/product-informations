@@ -46,12 +46,13 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // session configuration
 const sessionConfiguration = {
-    name: "PI.session",
+    name: "pi.session",
     secret: "J8gHmqeufpKZGLf9B6z3WT9e9FIxZCRy",
     resave: false,
     saveUninitialized: true,
     cookies: {
         httpOnly: true,
+        // secure: true, //requires https
         expires: Date.now() + 1000 * 3600 * 24 * 7,
         maxAge: 1000 * 3600 * 24 * 7,
     },
