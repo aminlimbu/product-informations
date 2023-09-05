@@ -1,7 +1,10 @@
+// Seed file to created dummy products
+
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
 dotenv.config();
+
 // requiring models to seed
 const Product = require("../models/Product");
 // requiring seed texts
@@ -35,6 +38,7 @@ async function connectDb() {
     }
 }
 
+// Invoke connection
 connectDb();
 
 // generate single random array item

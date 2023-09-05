@@ -3,6 +3,7 @@ const router = express.Router();
 const users = require("../controllers/users");
 const passport = require("passport");
 
+// passport middleware used in 'login/post' to authenticate
 router
     .route("/login")
     .get(users.renderLoginForm)

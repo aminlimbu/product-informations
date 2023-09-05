@@ -4,18 +4,22 @@ module.exports.renderLoginForm = (req, res) => {
     res.render("users/login");
 };
 
+// handle redirection after user logsin
 module.exports.userLogin = (req, res) => {
     req.flash("success", `welcome back! ${req.session.passport.user}`);
+    // check if the user session has 'originaltUrl' addres
     const redirectUrl = req.session.redirectTo || "/products";
     // clear session value for redirectTo
     delete req.session.redirectTo;
     res.redirect(redirectUrl);
 };
 
+// Render resigter form
 module.exports.registerForm = (req, res) => {
     res.render("users/register");
 };
 
+// Register user to database
 module.exports.userRegister = async (req, res) => {
     try {
         const { firstName, lastName, email, username, password } = req.body;
@@ -36,7 +40,7 @@ module.exports.userRegister = async (req, res) => {
 };
 
 module.exports.logOut = (req, res, next) => {
-    // logout is passportJS method; middleware
+    // logout is 'passport middleare' method
     req.logout((error) => {
         if (error) {
             return next(error);

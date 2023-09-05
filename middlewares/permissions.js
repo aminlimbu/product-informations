@@ -1,12 +1,12 @@
-// next to run next after the middleware
+// checks if the user is logged in
+// Middleware to authorise user actions
 module.exports.isLoggedIn = (req, res, next) => {
-    // isAuthienticate from possport.js
+    // isAuthienticate from possport middleware method
     if (!req.isAuthenticated()) {
-        // get the url request is from
-        // set it to session for redirection redirectTo
+        // set url to return to, after login
         req.session.redirectTo = req.originalUrl;
         return res.redirect("/users/login");
     }
-    // user already logged in pass next
+    // If user already logged in
     next();
 };

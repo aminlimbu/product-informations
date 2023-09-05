@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-// const Brand = require("./Brand");
 
-// Creating schema to use foor the model
 const productSchema = new Schema({
     title: String,
     brand: String,
@@ -15,5 +13,4 @@ const productSchema = new Schema({
     status: String,
 });
 
-// create "Product" model using schema and export
 module.exports = mongoose.model("Product", productSchema);

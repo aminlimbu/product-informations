@@ -2,9 +2,10 @@ const express = require("express");
 const product = require("../controllers/products");
 const router = express.Router();
 
-// middleware to check creating and updating authorisation
+// authorisation middleware to check creating and updating permissions
 const { isLoggedIn } = require("../middlewares/permissions");
 
+// Routes
 router.route("/").get(product.renderAllProducts);
 
 router.route("/:id").delete(isLoggedIn, product.deleteProduct);

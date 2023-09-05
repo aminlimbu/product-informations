@@ -8,8 +8,7 @@ const UserSchema = new Schema({
     email: String,
 });
 
-// passport middleware for username and password schema
-// salt and hash password
+// Plugin, handles username, hash password and salt value
 UserSchema.plugin(passportLocalMongoose);
 
 module.exports = new mongoose.model("User", UserSchema);
