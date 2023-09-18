@@ -8,6 +8,7 @@ const passportLocalStrategy = require("passport-local");
 const session = require("express-session");
 const flash = require("connect-flash");
 const dotenv = require("dotenv");
+const piErrors = require("./utilities/piErrors");
 
 const User = require("./models/User");
 const catalogueRoutes = require("./Routes/catalogue");
@@ -87,6 +88,20 @@ app.use("/users", usersRoutes);
 // render index file in the views folder
 app.get("/", (req, res) => {
     res.render("index");
+});
+
+app.all("*", (req, res, next) => {
+    // instantiate error object
+    next(new piErrors("Page Not Found", 404));
+});
+
+// handle all other errors
+app.use((err, req, res, next) => {
+    const { statusCode = 500, message = "Default error message" } = err;
+    if (!err.message) {
+        res.message = "Something went wrong ..";
+    }
+    res.status(statusCode).render("error", { err });
 });
 
 // listening port

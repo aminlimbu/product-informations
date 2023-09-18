@@ -6,7 +6,7 @@
 
 body {
     height: 100vh;
-    background-color: #1a1c00;
+    background-color: #1a1c0020;
     background-image: url("/media/binding-dark.png");
     color: white;
     position: relative;
@@ -16,6 +16,23 @@ input,
 select,
 textarea {
     background-color: #a4bc92;
+}
+
+a {
+    color: inherit;
+}
+
+.demo {
+    font-size: 6px;
+    transition: 0.2s ease-in-out;
+    overflow: visible;
+}
+.demo:hover {
+    font-size: 18px;
+}
+
+.main-container {
+    max-width: 1200px;
 }
 
 .card {

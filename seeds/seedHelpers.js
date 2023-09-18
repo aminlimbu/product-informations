@@ -11,7 +11,7 @@ module.exports.adjective = [
     "IMAX",
 ];
 
-module.exports.brandName = ["Denon", "Marantz", "Yamaha"];
+module.exports.brandName = ["Demon", "Mazestick", "Yalamber"];
 
 module.exports.sku = [
     "WNV",
