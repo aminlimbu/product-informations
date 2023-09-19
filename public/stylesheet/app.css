@@ -7,7 +7,6 @@
 body {
     height: 100vh;
     background-color: #1a1c0020;
-    background-image: url("/media/binding-dark.png");
     color: white;
     position: relative;
 }
@@ -36,7 +35,7 @@ a {
 }
 
 .card {
-    background-color: #40513b6c;
+    background-color: #40513b21;
 }
 
 .home-bg {
@@ -59,4 +58,68 @@ a {
     height: 500px;
     width: 500px;
     object-fit: contain;
+}
+
+/* Catalogue Pages */
+
+.product-container {
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: calc(25% - 20px);
+}
+
+.card-title {
+    font-size: 12px;
+}
+
+.product-filters {
+    width: 200px;
+    margin-right: 30px;
+}
+
+.list-group-item {
+    font-size: 0.7rem;
+}
+
+.list-group li {
+    text-decoration: none;
+}
+
+/* Catalogue pages */
+.catalogue-btn {
+    font-size: 12px;
+}
+/* Media queries */
+@media only screen and (max-width: 768px) {
+    .product-container {
+        margin-right: 10px;
+        margin-bottom: 10px;
+        width: calc(33.333% - 10px);
+    }
+    .product-filters {
+        display: none;
+    }
+    .catalogue-wrapper {
+        margin-left: 0;
+    }
+}
+
+@media only screen and (min-width: 767px) {
+    .product-container {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    .product-wrapper {
+        /* flex-direction: column; */
+        align-items: center;
+    }
+    .product-container {
+        width: 100vw;
+        margin: 0 0 15px 0;
+    }
+    .side-filters {
+        display: none;
+    }
 }
