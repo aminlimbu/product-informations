@@ -1,63 +1,87 @@
 <% layout('./layouts/boilerplate') %>
     <div class="d-flex flex-row w-100">
+        <!-- Filter Section -->
         <div class="d-none d-md-block d-flex flex-column mt-3 side-filters">
             <div class="product-filters bg-light mt-5 text-dark">
                 <div class="d-flex justify-content-center align-items-center p-2 fs-1">🚧</div>
                 <div class="text-center p-1 fw-bold">
                     &nbsp;
                 </div>
-                <div class="filter-potions">
-                    <ul class="list-group">
-                        <li class="list-group-item"><%- products[0].brand ? "Brand" : "" ; %>
-                                <ul>
-                                    <% if(availableBrands) {availableBrands.forEach((brand)=>{%>
-                                        <li>
-                                            <%= brand %>
-                                        </li>
-                                        <% })}%>
-                                </ul>
-                        </li>
-                        <li class="list-group-item"><%- products[0].channels ? "Channels" : "" ; %>
-                                <ul>
-                                    <% if(availableChannels){ availableChannels.forEach((channel)=> { %>
-                                        <li>
-                                            <%= channel %>
-                                        </li>
-                                        <% })} %>
-                                </ul>
-                        </li>
-                        <li class="list-group-item"><%- products[0].power ? "Power" : "" ; %>
-                                <ul>
-                                    <% if(availablePower){ availablePower.forEach((power)=>{ %>
-                                        <li>
-                                            <%= power %>
-                                        </li>
-                                        <% })} %>
-                                </ul>
-                        </li>
-                        <li class="list-group-item"><%- products[0].status ? "Status" : "" ; %>
-                                <ul>
-                                    <% if(stockAvailability){ stockAvailability.forEach((status)=> { %>
-                                        <li>
-                                            <%= status %>
-                                        </li>
-                                        <% })} %>
-                                </ul>
-                        </li>
-                    </ul>
+                <!-- Filter Options -->
+                <div class="d-flex flex-column justify-content-start p-2">
+                    <div class="list-group-item">
+                        <label class="d-block mb-1 fw-bold border-bottom">
+                            <%- products[0].brand ? "Brand" : "" ; %>
+                        </label>
+                        <div class="p-2">
+                            <% if(availableBrands) {availableBrands.forEach((brand)=>{%>
+                                <div class="d-block">
+                                    <input type="checkbox" class="brand-filter p-3" value="<%= brand %>">
+                                    <%= brand %><br />
+                                </div>
+                                <% })} %>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <label class="mb-1 d-block fw-bold border-bottom">
+                            <%- products[0].channels ? "Channels" : "" ; %>
+                        </label>
+                        <div class="p-2">
+                            <% if(availableChannels){ availableChannels.forEach((channel)=> { %>
+                                <div class="d-block">
+                                    <input type="checkbox" class="channel-filter" value="<%= channel %>">
+                                    <%= channel %><br />
+                                </div>
+                                <% })} %>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <lable class="mb-2 d-block fw-bold border-bottom">
+                            <%- products[0].power ? "Power" : "" ; %>
+                        </lable>
+                        <div class="p-2">
+                            <% if(availablePower){ availablePower.forEach((power)=>{ %>
+                                <div class="d-block">
+                                    <input type="checkbox" class="power-filter" value="<%= power %>">
+                                    <%= power %>
+                                </div>
+                                <% })} %>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <lable>
+                            <%- products[0].status ? "Status" : "" ; %>
+                        </lable class="mb-2 d-block fw-bold border-bottom">
+                        <div class="p-2">
+                            <% if(stockAvailability){ stockAvailability.forEach((status)=> { %>
+                                <div class="d-block">
+                                    <input type="checkbox" class="status-filter" value="<%= status %>">
+                                    <%= status %>
+                                </div>
+                                <% })} %>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
+        <!-- Product Catalogue Section -->
         <div class="mt-3 mb-3 h-100 d-flex flex-column w-100 catalogue-wrapper">
             <div class="d-flex flex-column justify-content-center align-items-center w-100">
+                <!-- Title for the catalogue page -->
                 <div>
                     <h1>
                         <%= products[0].component %>
                     </h1>
                 </div>
-                <div class="d-flex row align-items-stretch justify-content-between w-100 product-wrapper">
+                <!-- Product Continer -->
+                <div class="d-flex row align-items-stretch justify-content-start w-100 product-wrapper">
+                    <!-- Dynamically display products -->
                     <% for(let product of products) {%>
-                        <div class="card rounded-5 p-1 product-container text-dark">
+                        <!-- dataset property to assist with DOM manipulation -->
+                        <div class="card rounded-5 p-1 product-container text-dark" data-brand="<%= product.brand %>"
+                            data-channels="<%= product.channels %>" data-power="<%= product.power %>"
+                            data-status="<%= product.status %>">
                             <%if(product.images[0]){%>
                                 <img src="<%= product.images[0].split(',')[0] %>" alt="" class="card-img-top">
                                 <%}%>
@@ -80,3 +104,5 @@
             </div>
         </div>
     </div>
+    <!-- Importing Script  -->
+    <script type="text/javascript" src="/javascript/scripts.js"></script>

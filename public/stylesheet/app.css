@@ -34,10 +34,6 @@ a {
     max-width: 1200px;
 }
 
-.card {
-    background-color: #40513b21;
-}
-
 .home-bg {
     background-image: url("../media/home-bg.jpg");
     background-size: cover;
