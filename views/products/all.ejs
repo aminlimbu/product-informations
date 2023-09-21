@@ -1,9 +1,10 @@
 <% layout('./layouts/boilerplate')%>
-    <div class="min-vh-100 mt-3 overflow-auto">
-        <h1>All Products</h1>
+<!-- Display all products from datbase -->
+    <main class="min-vh-100 mt-3 overflow-auto">
+        <h1 class="text-dark">All Products</h1>
         <div>
-            <table class="table text-dark min-h-100">
-                <thead class="sticky-top bg-secondary">
+            <table class="table min-h-100 table-hover">
+                <thead class="sticky-top bg-secondary text-light">
                     <th scope="col">Name</th>
                     <th scope="col">Brand</th>
                     <th scope="col">SKU</th>
@@ -36,7 +37,7 @@
                             </td>
                             <td class="p-2">
                                 <img src="<%= product.images[0] ? product.images[0].split(',')[0] : ''%>"
-                                    class="img-thumbnail">
+                                    class="img-thumbnail p-3">
                             </td>
                             <td class="p-2">
                                 <a href="/products/show/<%= product.id %>"><button
@@ -53,4 +54,4 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </main>

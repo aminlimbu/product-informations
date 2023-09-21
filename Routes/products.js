@@ -3,7 +3,7 @@ const product = require("../controllers/products");
 const router = express.Router();
 const asyncCatch = require("../utilities/asyncCatch");
 
-// authorisation middleware to check creating and updating permissions
+// authorisation middleware, checks creating and updating permissions
 const { isLoggedIn } = require("../middlewares/permissions");
 
 // Routes

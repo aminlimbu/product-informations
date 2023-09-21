@@ -5,9 +5,10 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-// requiring models to seed
+// Models schema
 const Product = require("../models/Product");
-// requiring seed texts
+
+// De-structuring arrays from helper file
 const {
     adjective,
     sku,
@@ -22,9 +23,10 @@ const {
     networkPlayerImages,
 } = require("./seedHelpers");
 
+// Mongose setup
 mongoose.set("strictQuery", true);
 
-// connecting mongodb
+// Database connection function
 async function connectDb() {
     try {
         await mongoose.connect(process.env.DB_URI, {
@@ -38,15 +40,15 @@ async function connectDb() {
     }
 }
 
-// Invoke connection
+// Invoke database connection
 connectDb();
 
-// generate single random array item
+// Function to generate single random array item
 const randEl = (array) => {
     return array[Math.floor(Math.random() * array.length)];
 };
 
-// seed function
+// Main Function
 const seedDb = async () => {
     // remove all data from the collection, if already populated - all will be removed
     await Product.deleteMany({});

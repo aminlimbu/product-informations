@@ -11,12 +11,6 @@ body {
     position: relative;
 }
 
-input,
-select,
-textarea {
-    background-color: #a4bc92;
-}
-
 a {
     color: inherit;
 }
@@ -58,12 +52,6 @@ a {
     background-size: cover;
 }
 
-.carousel-item img {
-    height: 500px;
-    width: 500px;
-    object-fit: contain;
-}
-
 /* Catalogue Pages */
 
 .product-container {
@@ -89,10 +77,16 @@ a {
     text-decoration: none;
 }
 
-/* Catalogue pages */
+.carousel-item img {
+    height: 500px;
+    width: 500px;
+    object-fit: contain;
+}
+
 .catalogue-btn {
     font-size: 12px;
 }
+
 /* Media queries */
 @media only screen and (max-width: 768px) {
     .product-container {
@@ -116,7 +110,6 @@ a {
 
 @media only screen and (max-width: 520px) {
     .product-wrapper {
-        /* flex-direction: column; */
         align-items: center;
     }
     .product-container {
