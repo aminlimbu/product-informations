@@ -34,6 +34,8 @@ a {
     max-width: 1200px;
 }
 
+/* Homepage Section */
+
 .home-bg {
     background-image: url("../media/home-bg.jpg");
     background-size: cover;
@@ -48,6 +50,12 @@ a {
     background-color: rgba(0, 0, 0, 0.683);
     display: block;
     z-index: 20;
+}
+
+.home-bottom {
+    background-image: url("https://picsum.photos/900/600");
+    background-position: center;
+    background-size: cover;
 }
 
 .carousel-item img {
